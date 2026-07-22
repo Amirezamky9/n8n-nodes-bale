@@ -1921,6 +1921,7 @@ export class Bale implements INodeType {
 							text: this.getNodeParameter('text', i) as string,
 						};
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/sendMessage', body);
 					} else if (operation === 'sendPhoto') {
 						const body: IDataObject = { chat_id: chatId };
@@ -1947,6 +1948,7 @@ export class Bale implements INodeType {
 							};
 						}
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/sendPhoto', body);
 					} else if (operation === 'sendVideo') {
 						const body: IDataObject = { chat_id: chatId };
@@ -1973,6 +1975,7 @@ export class Bale implements INodeType {
 							};
 						}
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/sendVideo', body);
 					} else if (operation === 'sendDocument') {
 						const body: IDataObject = { chat_id: chatId };
@@ -1999,6 +2002,7 @@ export class Bale implements INodeType {
 							};
 						}
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/sendDocument', body);
 					} else if (operation === 'sendAudio') {
 						const body: IDataObject = { chat_id: chatId };
@@ -2025,6 +2029,7 @@ export class Bale implements INodeType {
 							};
 						}
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/sendAudio', body);
 					} else if (operation === 'sendVoice') {
 						const body: IDataObject = { chat_id: chatId };
@@ -2051,6 +2056,7 @@ export class Bale implements INodeType {
 							};
 						}
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/sendVoice', body);
 					} else if (operation === 'sendAnimation') {
 						const body: IDataObject = { chat_id: chatId };
@@ -2077,6 +2083,7 @@ export class Bale implements INodeType {
 							};
 						}
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/sendAnimation', body);
 					} else if (operation === 'sendSticker') {
 						const body: IDataObject = { chat_id: chatId };
@@ -2102,6 +2109,7 @@ export class Bale implements INodeType {
 							};
 						}
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/sendSticker', body);
 					} else if (operation === 'sendLocation') {
 						const body: IDataObject = {
@@ -2110,6 +2118,7 @@ export class Bale implements INodeType {
 							longitude: this.getNodeParameter('longitude', i) as number,
 						};
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/sendLocation', body);
 					} else if (operation === 'sendChatAction') {
 						const body: IDataObject = {
@@ -2130,6 +2139,7 @@ export class Bale implements INodeType {
 							message_id: this.getNodeParameter('messageId', i) as number,
 						};
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/copyMessage', body);
 					} else if (operation === 'forwardMessage') {
 						const body: IDataObject = {
@@ -2138,6 +2148,7 @@ export class Bale implements INodeType {
 							message_id: this.getNodeParameter('messageId', i) as number,
 						};
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/forwardMessage', body);
 					} else if (operation === 'deleteMessage') {
 						const body: IDataObject = {
@@ -2152,6 +2163,7 @@ export class Bale implements INodeType {
 							text: this.getNodeParameter('text', i) as string,
 						};
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/editMessageText', body);
 					} else if (operation === 'editMessageCaption') {
 						const body: IDataObject = {
@@ -2159,6 +2171,7 @@ export class Bale implements INodeType {
 							message_id: this.getNodeParameter('messageId', i) as number,
 						};
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/editMessageCaption', body);
 					} else if (operation === 'pinChatMessage') {
 						const body: IDataObject = {
@@ -2166,6 +2179,7 @@ export class Bale implements INodeType {
 							message_id: this.getNodeParameter('messageId', i) as number,
 						};
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/pinChatMessage', body);
 					} else if (operation === 'unpinChatMessage') {
 						const body: IDataObject = {
@@ -2191,6 +2205,7 @@ export class Bale implements INodeType {
 							results: JSON.parse(this.getNodeParameter('results', i) as string),
 						};
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/answerInlineQuery', body);
 					}
 				} else if (resource === 'chat') {
@@ -2243,6 +2258,7 @@ export class Bale implements INodeType {
 							payload: this.getNodeParameter('payload', i) as string,
 						};
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/sendInvoice', body);
 					} else if (operation === 'createInvoiceLink') {
 						const prices = JSON.parse(this.getNodeParameter('prices', i) as string);
@@ -2255,6 +2271,7 @@ export class Bale implements INodeType {
 							payload: this.getNodeParameter('payload', i) as string,
 						};
 						addAdditionalFields.call(this, body, i);
+						addReplyMarkup.call(this, body, i);
 						responseData = await apiRequest.call(this, 'POST', '/createInvoiceLink', body);
 					} else if (operation === 'answerPreCheckoutQuery') {
 						const body: IDataObject = {
