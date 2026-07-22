@@ -1,0 +1,52 @@
+{
+  "name": "n8n-nodes-bale",
+  "version": "0.1.0",
+  "description": "n8n community node for Bale messenger (ble.ir) bot API",
+  "license": "MIT",
+  "homepage": "https://github.com/amirezamky9/n8n-nodes-bale",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amirezamky9/n8n-nodes-bale.git"
+  },
+  "author": {
+    "name": "Amirreza Mokhtari"
+  },
+  "keywords": [
+    "n8n-community-node-package"
+  ],
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "release": "n8n-node release",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/BaleApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Bale/Bale.node.js",
+      "dist/nodes/Bale/BaleTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "^0.40.2",
+    "@types/mime-types": "^2.1.0",
+    "typescript": "~5.8.3",
+    "vitest": "^1.6.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "engines": {
+    "node": ">=18.10"
+  }
+}
