@@ -159,7 +159,7 @@ export class BaleTrigger implements INodeType {
 			try {
 				const credentials = await this.getCredentials('baleApi');
 				const token = credentials.accessToken as string;
-				const baseUrl = (credentials.baseUrl as string) || 'https://api.bale.ai';
+				const baseUrl = (credentials.baseUrl as string) || 'https://tapi.bale.ai';
 
 				const message = bodyData.message || bodyData.edited_message || bodyData.channel_post || bodyData.edited_channel_post;
 

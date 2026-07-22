@@ -21,7 +21,7 @@ export class BaleApi implements ICredentialType {
 			displayName: 'Base URL',
 			name: 'baseUrl',
 			type: 'string',
-			default: 'https://api.bale.ai',
+			default: 'https://tapi.bale.ai',
 			description: 'Base URL for Bale Bot API',
 		},
 	];

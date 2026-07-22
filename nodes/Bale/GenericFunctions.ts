@@ -14,7 +14,7 @@ import { NodeApiError } from 'n8n-workflow';
 //       Base URL
 // ----------------------------------
 
-const BASE_URL = 'https://api.bale.ai';
+const BASE_URL = 'https://tapi.bale.ai';
 
 // ----------------------------------
 //       API Request
@@ -464,7 +464,7 @@ export const replyKeyboardOptionsProperty: INodeProperties = {
 export async function downloadFile(
 	fileId: string,
 	token: string,
-	baseUrl: string = 'https://api.bale.ai',
+	baseUrl: string = 'https://tapi.bale.ai',
 ): Promise<{ data: Buffer; fileName: string; mimeType: string }> {
 	const response = await fetch(`${baseUrl}/file/bot${token}/${fileId}`);
 	if (!response.ok) {

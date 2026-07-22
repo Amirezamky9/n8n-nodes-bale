@@ -7,7 +7,7 @@ import type { IHttpRequestMethods, IExecuteFunctions } from 'n8n-workflow';
 export async function downloadFile(
 	fileId: string,
 	token: string,
-	baseUrl: string = 'https://api.bale.ai',
+	baseUrl: string = 'https://tapi.bale.ai',
 ): Promise<Buffer> {
 	const response = await fetch(`${baseUrl}/file/bot${token}/${fileId}`);
 	if (!response.ok) {
