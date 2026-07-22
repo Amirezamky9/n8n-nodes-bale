@@ -135,7 +135,7 @@ export class BaleTrigger implements INodeType {
 	webhookMethods = {
 		default: {
 			async checkExists(this: IHookFunctions): Promise<boolean> {
-				const endpoint = '/getWebhookInfo';
+				const endpoint = 'getWebhookInfo';
 				const webhookReturnData = await apiRequest.call(this, 'POST', endpoint, {});
 				const webhookUrl = this.getNodeWebhookUrl('default');
 
@@ -154,7 +154,7 @@ export class BaleTrigger implements INodeType {
 					allowedUpdates = [];
 				}
 
-				const endpoint = '/setWebhook';
+				const endpoint = 'setWebhook';
 
 				const body: any = {
 					url: webhookUrl,
@@ -166,7 +166,7 @@ export class BaleTrigger implements INodeType {
 				return true;
 			},
 			async delete(this: IHookFunctions): Promise<boolean> {
-				const endpoint = '/deleteWebhook';
+				const endpoint = 'deleteWebhook';
 				const body = {};
 
 				try {

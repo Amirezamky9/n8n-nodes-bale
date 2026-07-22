@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-bale-bot",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "n8n community node for Bale messenger (ble.ir) bot API",
   "license": "MIT",
   "homepage": "https://github.com/amirezamky9/n8n-nodes-bale",

@@ -28,25 +28,35 @@ export async function apiRequest(
 	method: string,
 	endpoint: string,
 	body: IDataObject = {},
-	query: IDataObject = {},
+	query?: IDataObject,
+	option: IDataObject = {},
 ): Promise<any> {
 	const credentials = await this.getCredentials('baleApi');
-	const token = credentials.accessToken;
+
+	query = query || {};
 
 	const options: IRequestOptions = {
-		method: method as any,
-		uri: `${BASE_URL}/bot${token}${endpoint}`,
+		headers: {},
+		method: method as IHttpRequestMethods,
+		uri: `${credentials.baseUrl}/bot${credentials.accessToken}/${endpoint}`,
 		body,
 		qs: query,
 		json: true,
 	};
 
-	try {
-		const response = await this.helpers.request(options);
-		return response;
-	} catch (error) {
-		throw new NodeApiError(this.getNode(), error as JsonObject);
+	if (Object.keys(option).length > 0) {
+		Object.assign(options, option);
 	}
+
+	if (Object.keys(body).length === 0) {
+		delete options.body;
+	}
+
+	if (Object.keys(query).length === 0) {
+		delete options.qs;
+	}
+
+	return this.helpers.request(options);
 }
 
 // ----------------------------------
@@ -68,7 +78,7 @@ export function buildInlineKeyboard(buttons: any[]): any[][] {
 		if (btn.switch_inline_query) button.switch_inline_query = btn.switch_inline_query;
 		if (btn.switch_inline_query_current_chat) button.switch_inline_query_current_chat = btn.switch_inline_query_current_chat;
 		if (btn.pay) button.pay = true;
-		return button;
+		return [button];
 	});
 }
 

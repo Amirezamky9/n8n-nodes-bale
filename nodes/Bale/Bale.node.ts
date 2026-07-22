@@ -1922,7 +1922,7 @@ export class Bale implements INodeType {
 						};
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/sendMessage', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendMessage', body);
 					} else if (operation === 'sendPhoto') {
 						const body: IDataObject = { chat_id: chatId };
 						const source = this.getNodeParameter('source', i) as string;
@@ -1949,7 +1949,7 @@ export class Bale implements INodeType {
 						}
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/sendPhoto', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendPhoto', body);
 					} else if (operation === 'sendVideo') {
 						const body: IDataObject = { chat_id: chatId };
 						const source = this.getNodeParameter('source', i) as string;
@@ -1976,7 +1976,7 @@ export class Bale implements INodeType {
 						}
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/sendVideo', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendVideo', body);
 					} else if (operation === 'sendDocument') {
 						const body: IDataObject = { chat_id: chatId };
 						const source = this.getNodeParameter('source', i) as string;
@@ -2003,7 +2003,7 @@ export class Bale implements INodeType {
 						}
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/sendDocument', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendDocument', body);
 					} else if (operation === 'sendAudio') {
 						const body: IDataObject = { chat_id: chatId };
 						const source = this.getNodeParameter('source', i) as string;
@@ -2030,7 +2030,7 @@ export class Bale implements INodeType {
 						}
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/sendAudio', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendAudio', body);
 					} else if (operation === 'sendVoice') {
 						const body: IDataObject = { chat_id: chatId };
 						const source = this.getNodeParameter('source', i) as string;
@@ -2057,7 +2057,7 @@ export class Bale implements INodeType {
 						}
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/sendVoice', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendVoice', body);
 					} else if (operation === 'sendAnimation') {
 						const body: IDataObject = { chat_id: chatId };
 						const source = this.getNodeParameter('source', i) as string;
@@ -2084,7 +2084,7 @@ export class Bale implements INodeType {
 						}
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/sendAnimation', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendAnimation', body);
 					} else if (operation === 'sendSticker') {
 						const body: IDataObject = { chat_id: chatId };
 						const source = this.getNodeParameter('source', i) as string;
@@ -2110,7 +2110,7 @@ export class Bale implements INodeType {
 						}
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/sendSticker', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendSticker', body);
 					} else if (operation === 'sendLocation') {
 						const body: IDataObject = {
 							chat_id: chatId,
@@ -2119,19 +2119,19 @@ export class Bale implements INodeType {
 						};
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/sendLocation', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendLocation', body);
 					} else if (operation === 'sendChatAction') {
 						const body: IDataObject = {
 							chat_id: chatId,
 							action: this.getNodeParameter('action', i) as string,
 						};
-						responseData = await apiRequest.call(this, 'POST', '/sendChatAction', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendChatAction', body);
 					} else if (operation === 'sendMediaGroup') {
 						const body: IDataObject = {
 							chat_id: chatId,
 							media: JSON.parse(this.getNodeParameter('media', i) as string),
 						};
-						responseData = await apiRequest.call(this, 'POST', '/sendMediaGroup', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendMediaGroup', body);
 					} else if (operation === 'copyMessage') {
 						const body: IDataObject = {
 							chat_id: chatId,
@@ -2140,7 +2140,7 @@ export class Bale implements INodeType {
 						};
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/copyMessage', body);
+						responseData = await apiRequest.call(this, 'POST', 'copyMessage', body);
 					} else if (operation === 'forwardMessage') {
 						const body: IDataObject = {
 							chat_id: chatId,
@@ -2149,13 +2149,13 @@ export class Bale implements INodeType {
 						};
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/forwardMessage', body);
+						responseData = await apiRequest.call(this, 'POST', 'forwardMessage', body);
 					} else if (operation === 'deleteMessage') {
 						const body: IDataObject = {
 							chat_id: chatId,
 							message_id: this.getNodeParameter('messageId', i) as number,
 						};
-						responseData = await apiRequest.call(this, 'POST', '/deleteMessage', body);
+						responseData = await apiRequest.call(this, 'POST', 'deleteMessage', body);
 					} else if (operation === 'editMessageText') {
 						const body: IDataObject = {
 							chat_id: chatId,
@@ -2164,7 +2164,7 @@ export class Bale implements INodeType {
 						};
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/editMessageText', body);
+						responseData = await apiRequest.call(this, 'POST', 'editMessageText', body);
 					} else if (operation === 'editMessageCaption') {
 						const body: IDataObject = {
 							chat_id: chatId,
@@ -2172,7 +2172,7 @@ export class Bale implements INodeType {
 						};
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/editMessageCaption', body);
+						responseData = await apiRequest.call(this, 'POST', 'editMessageCaption', body);
 					} else if (operation === 'pinChatMessage') {
 						const body: IDataObject = {
 							chat_id: chatId,
@@ -2180,13 +2180,13 @@ export class Bale implements INodeType {
 						};
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/pinChatMessage', body);
+						responseData = await apiRequest.call(this, 'POST', 'pinChatMessage', body);
 					} else if (operation === 'unpinChatMessage') {
 						const body: IDataObject = {
 							chat_id: chatId,
 							message_id: this.getNodeParameter('messageId', i) as number,
 						};
-						responseData = await apiRequest.call(this, 'POST', '/unpinChatMessage', body);
+						responseData = await apiRequest.call(this, 'POST', 'unpinChatMessage', body);
 					}
 				} else if (resource === 'callback') {
 					// ==========================================
@@ -2198,7 +2198,7 @@ export class Bale implements INodeType {
 							text: this.getNodeParameter('text', i) as string,
 							show_alert: this.getNodeParameter('showAlert', i) as boolean,
 						};
-						responseData = await apiRequest.call(this, 'POST', '/answerCallbackQuery', body);
+						responseData = await apiRequest.call(this, 'POST', 'answerCallbackQuery', body);
 					} else if (operation === 'answerInlineQuery') {
 						const body: IDataObject = {
 							inline_query_id: this.getNodeParameter('inlineQueryId', i) as string,
@@ -2206,7 +2206,7 @@ export class Bale implements INodeType {
 						};
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/answerInlineQuery', body);
+						responseData = await apiRequest.call(this, 'POST', 'answerInlineQuery', body);
 					}
 				} else if (resource === 'chat') {
 					// ==========================================
@@ -2215,23 +2215,23 @@ export class Bale implements INodeType {
 					const chatId = this.getNodeParameter('chatId', i) as string;
 
 					if (operation === 'get') {
-						responseData = await apiRequest.call(this, 'POST', '/getChat', { chat_id: chatId });
+						responseData = await apiRequest.call(this, 'POST', 'getChat', { chat_id: chatId });
 					} else if (operation === 'getAdministrators') {
-						responseData = await apiRequest.call(this, 'POST', '/getChatAdministrators', { chat_id: chatId });
+						responseData = await apiRequest.call(this, 'POST', 'getChatAdministrators', { chat_id: chatId });
 					} else if (operation === 'getMember') {
-						responseData = await apiRequest.call(this, 'POST', '/getChatMember', {
+						responseData = await apiRequest.call(this, 'POST', 'getChatMember', {
 							chat_id: chatId,
 							user_id: this.getNodeParameter('userId', i) as string,
 						});
 					} else if (operation === 'leave') {
-						responseData = await apiRequest.call(this, 'POST', '/leaveChat', { chat_id: chatId });
+						responseData = await apiRequest.call(this, 'POST', 'leaveChat', { chat_id: chatId });
 					} else if (operation === 'setDescription') {
-						responseData = await apiRequest.call(this, 'POST', '/setChatDescription', {
+						responseData = await apiRequest.call(this, 'POST', 'setChatDescription', {
 							chat_id: chatId,
 							description: this.getNodeParameter('description', i) as string,
 						});
 					} else if (operation === 'setTitle') {
-						responseData = await apiRequest.call(this, 'POST', '/setChatTitle', {
+						responseData = await apiRequest.call(this, 'POST', 'setChatTitle', {
 							chat_id: chatId,
 							title: this.getNodeParameter('title', i) as string,
 						});
@@ -2241,7 +2241,7 @@ export class Bale implements INodeType {
 					//         FILE OPERATIONS
 					// ==========================================
 					const fileId = this.getNodeParameter('fileId', i) as string;
-					responseData = await apiRequest.call(this, 'POST', '/getFile', { file_id: fileId });
+					responseData = await apiRequest.call(this, 'POST', 'getFile', { file_id: fileId });
 				} else if (resource === 'payment') {
 					// ==========================================
 					//         PAYMENT OPERATIONS
@@ -2259,7 +2259,7 @@ export class Bale implements INodeType {
 						};
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/sendInvoice', body);
+						responseData = await apiRequest.call(this, 'POST', 'sendInvoice', body);
 					} else if (operation === 'createInvoiceLink') {
 						const prices = JSON.parse(this.getNodeParameter('prices', i) as string);
 						const body: IDataObject = {
@@ -2272,7 +2272,7 @@ export class Bale implements INodeType {
 						};
 						addAdditionalFields.call(this, body, i);
 						addReplyMarkup.call(this, body, i);
-						responseData = await apiRequest.call(this, 'POST', '/createInvoiceLink', body);
+						responseData = await apiRequest.call(this, 'POST', 'createInvoiceLink', body);
 					} else if (operation === 'answerPreCheckoutQuery') {
 						const body: IDataObject = {
 							pre_checkout_query_id: this.getNodeParameter('preCheckoutQueryId', i) as string,
@@ -2281,12 +2281,12 @@ export class Bale implements INodeType {
 						if (!body.ok) {
 							body.error_message = this.getNodeParameter('errorMessage', i) as string;
 						}
-						responseData = await apiRequest.call(this, 'POST', '/answerPreCheckoutQuery', body);
+						responseData = await apiRequest.call(this, 'POST', 'answerPreCheckoutQuery', body);
 					} else if (operation === 'inquireTransaction') {
 						const body: IDataObject = {
 							transaction_id: this.getNodeParameter('transactionId', i) as string,
 						};
-						responseData = await apiRequest.call(this, 'POST', '/inquireTransaction', body);
+						responseData = await apiRequest.call(this, 'POST', 'inquireTransaction', body);
 					}
 				}
 
