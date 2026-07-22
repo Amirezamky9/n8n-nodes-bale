@@ -132,6 +132,54 @@ export class BaleTrigger implements INodeType {
 		],
 	};
 
+	webhookMethods = {
+		default: {
+			async checkExists(this: IHookFunctions): Promise<boolean> {
+				const endpoint = '/getWebhookInfo';
+				const webhookReturnData = await apiRequest.call(this, 'POST', endpoint, {});
+				const webhookUrl = this.getNodeWebhookUrl('default');
+
+				if (webhookReturnData.result.url === webhookUrl) {
+					return true;
+				}
+
+				return false;
+			},
+			async create(this: IHookFunctions): Promise<boolean> {
+				const webhookUrl = this.getNodeWebhookUrl('default');
+
+				let allowedUpdates = this.getNodeParameter('updates') as string[];
+
+				if ((allowedUpdates || []).includes('*')) {
+					allowedUpdates = [];
+				}
+
+				const endpoint = '/setWebhook';
+
+				const body: any = {
+					url: webhookUrl,
+					allowed_updates: allowedUpdates,
+				};
+
+				await apiRequest.call(this, 'POST', endpoint, body);
+
+				return true;
+			},
+			async delete(this: IHookFunctions): Promise<boolean> {
+				const endpoint = '/deleteWebhook';
+				const body = {};
+
+				try {
+					await apiRequest.call(this, 'POST', endpoint, body);
+				} catch (error) {
+					return false;
+				}
+
+				return true;
+			},
+		},
+	};
+
 	/**
 	 * Webhook handler — called when a POST request hits the webhook
 	 */

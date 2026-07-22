@@ -24,14 +24,14 @@ const BASE_URL = 'https://tapi.bale.ai';
  * Make an API request to Bale Bot API.
  */
 export async function apiRequest(
-	this: IExecuteFunctions,
+	this: IExecuteFunctions | IHookFunctions,
 	method: string,
 	endpoint: string,
 	body: IDataObject = {},
 	query: IDataObject = {},
 ): Promise<any> {
 	const credentials = await this.getCredentials('baleApi');
-	const token = credentials.token;
+	const token = credentials.accessToken;
 
 	const options: IRequestOptions = {
 		method: method as any,
@@ -482,5 +482,5 @@ export async function downloadFile(
  */
 export async function getSecretToken(this: IExecuteFunctions | IHookFunctions | IWebhookFunctions): Promise<string> {
 	const credentials = await this.getCredentials('baleApi');
-	return credentials.token as string;
+	return credentials.accessToken as string;
 }
